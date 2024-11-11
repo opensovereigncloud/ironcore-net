@@ -1,0 +1,19 @@
+team: iaas
+assignees:
+  - "benjamin.alpert"
+  - "kajol.asabe"
+  - "rohit.kumar"
+  - "usha.belgur"
+  - "sujeet.phadtare"
+cveLabels:
+  - "type::3-cve"
+  - "stream::onMetal"
+  - "Component: API"
+  - "why::Security"
+  - "squad::API"
+dueDays: 13
+cve:
+  - repository: osc/upstream/ironcore-dev/ironcore-net-apiserver
+  - repository: osc/upstream/ironcore-dev/ironcore-net-controller-manager
+  - repository: osc/upstream/ironcore-dev/ironcore-net-apinetlet
+  - repository: osc/upstream/ironcore-dev/ironcore-net-metalnetlet
