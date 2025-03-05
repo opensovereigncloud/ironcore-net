@@ -183,7 +183,7 @@ func SetupTest(metalnetNs *corev1.Namespace) {
 	})
 }
 
-func SetupTestWithNetworkPeeringControllingTypeNone(metalnetNs *corev1.Namespace) {
+func SetupTestWithNetworkPeeringDisabled(metalnetNs *corev1.Namespace) {
 	BeforeEach(func(ctx SpecContext) {
 		k8sManager, err := ctrl.NewManager(cfg, ctrl.Options{
 			Scheme: scheme.Scheme,
@@ -195,11 +195,11 @@ func SetupTestWithNetworkPeeringControllingTypeNone(metalnetNs *corev1.Namespace
 
 		// register reconciler here
 		Expect((&NetworkReconciler{
-			Client:                        k8sManager.GetClient(),
-			MetalnetClient:                k8sManager.GetClient(),
-			PartitionName:                 partitionName,
-			MetalnetNamespace:             metalnetNs.Name,
-			NetworkPeeringControllingType: NetworkPeeringControllingTypeNone,
+			Client:                 k8sManager.GetClient(),
+			MetalnetClient:         k8sManager.GetClient(),
+			PartitionName:          partitionName,
+			MetalnetNamespace:      metalnetNs.Name,
+			NetworkPeeringDisabled: true,
 		}).SetupWithManager(k8sManager, k8sManager.GetCache())).To(Succeed())
 
 		Expect((&MetalnetNodeReconciler{
