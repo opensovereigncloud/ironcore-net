@@ -71,7 +71,7 @@ func main() {
 	flag.StringVar(&metalnetKubeconfig, "metalnet-kubeconfig", "", "Metalnet kubeconfig to use.")
 	flag.StringVar(&metalnetNamespace, "metalnet-namespace", corev1.NamespaceDefault, "Metalnet namespace to use.")
 	flag.BoolVar(&disableNetworkPeering, "disable-network-peering", false,
-		"Disable the metalnet based network peering. If set to true the network peering is handled externally.")
+		"Disable the metalnet based network peering. If set to 'true', the network peering has to be handled externally.")
 
 	opts := zap.Options{
 		Development: true,
